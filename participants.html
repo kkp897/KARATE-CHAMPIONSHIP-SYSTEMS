@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SMA Participants</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🥋 Participants Dashboard</h1>
+
+    <!-- Stats -->
+    <div
+      id="stats"
+      style="
+        display:flex;
+        gap:15px;
+        margin-bottom:20px;
+        flex-wrap:wrap;
+      "
+    >
+
+      <div class="stat-card">
+        <h3>Total</h3>
+        <p id="totalCount">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Present</h3>
+        <p id="presentCount">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Pending</h3>
+        <p id="pendingCount">0</p>
+      </div>
+
+    </div>
+
+    <!-- Coach Search -->
+    <input
+      type="text"
+      id="coachSearch"
+      placeholder="Search Coach..."
+    >
+
+    <br><br>
+
+    <!-- Participant Search -->
+    <input
+      type="text"
+      id="participantSearch"
+      placeholder="Search Participant..."
+    >
+
+    <br><br>
+
+    <!-- Table -->
+    <table
+      id="participantsTable"
+      width="100%"
+    >
+
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Division</th>
+          <th>Category</th>
+          <th>Coach</th>
+          <th>Academy</th>
+          <th>Event</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody id="tableBody"></tbody>
+
+    </table>
+
+  </div>
+
+  <script
+    type="module"
+    src="participants.js"
+  ></script>
+
+</body>
+</html>

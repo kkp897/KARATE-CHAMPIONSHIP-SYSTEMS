@@ -1,0 +1,182 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111827;
+  color: white;
+  margin: 0;
+  padding: 30px;
+}
+
+.container {
+  width: 95%;
+  max-width: 1400px;
+  margin: auto;
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  overflow-x: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #facc15;
+}
+
+h2 {
+  margin-top: 25px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 8px;
+  background: #374151;
+  color: white;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #facc15;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+#qrContainer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#result {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 22px;
+}
+#reader {
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.success {
+  background: #14532d;
+  padding: 20px;
+  border-radius: 15px;
+  color: #86efac;
+}
+
+.warning {
+  background: #78350f;
+  padding: 20px;
+  border-radius: 15px;
+  color: #fde68a;
+}
+
+.error {
+  background: #7f1d1d;
+  padding: 20px;
+  border-radius: 15px;
+  color: #fca5a5;
+}
+.stat-card {
+  flex: 1;
+  min-width: 120px;
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #374151;
+}
+
+.stat-card h3 {
+  margin: 0;
+  color: #facc15;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  min-width: 1000px;
+}
+
+th {
+  color: #facc15;
+  text-align: left;
+  padding: 14px;
+}
+
+td {
+  padding: 14px;
+  vertical-align: middle;
+}
+
+tr {
+  border-bottom: 1px solid #374151;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.category-cell {
+  min-width: 120px;
+  font-weight: bold;
+}
+@media print {
+
+  .stat-card,
+.fixture-card,
+div {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
+}
+
+body {
+  zoom: 90%;
+}
+
+  button {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .stat-card {
+    box-shadow: none;
+    border: 1px solid black;
+  }
+}

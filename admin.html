@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SMA Check-In Admin</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🥋 SMA Championship Admin</h1>
+
+    <h2>Add Participant</h2>
+
+    <input type="text" id="name" placeholder="Player Name">
+
+    <input type="number" id="age" placeholder="Age">
+
+    <input type="number" id="weight" placeholder="Weight (kg)">
+
+    <input type="text" id="coach" placeholder="Coach Name">
+
+    <input type="text" id="academy" placeholder="Academy Name">
+
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <select id="eventType">
+      <option value="">Select Event Type</option>
+      <option value="Kata">Kata</option>
+      <option value="Kumite">Kumite</option>
+      <option value="Both">Both</option>
+    </select>
+
+    <br><br>
+
+    <button id="addBtn">Add Participant</button>
+
+    <div id="qrContainer"></div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
