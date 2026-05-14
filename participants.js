@@ -16,6 +16,12 @@ const coachSearch =
 const participantSearch =
   document.getElementById("participantSearch");
 
+const ageSearch =
+  document.getElementById("ageSearch");
+
+const weightSearch =
+  document.getElementById("weightSearch");
+
 let allParticipants = [];
 
 // =======================
@@ -26,7 +32,7 @@ async function loadParticipants() {
 
   tableBody.innerHTML = `
     <tr>
-      <td colspan="8">
+      <td colspan="10">
         Loading...
       </td>
     </tr>
@@ -53,7 +59,7 @@ async function loadParticipants() {
 
     tableBody.innerHTML = `
       <tr>
-        <td colspan="8">
+        <td colspan="10">
           Failed to load participants
         </td>
       </tr>
@@ -73,7 +79,7 @@ function renderParticipants(participants) {
 
     tableBody.innerHTML = `
       <tr>
-        <td colspan="8">
+        <td colspan="10">
           No participants found
         </td>
       </tr>
@@ -84,7 +90,6 @@ function renderParticipants(participants) {
 
   participants.forEach(participant => {
 
-    // Present status
     const status =
       participant.checkedIn
         ? "🟢 Present"
@@ -92,7 +97,6 @@ function renderParticipants(participants) {
             ✅ Present
            </button>`;
 
-    // Category logic
     let categoryText = "-";
 
     if (
@@ -111,15 +115,17 @@ function renderParticipants(participants) {
 
     tableBody.innerHTML += `
       <tr>
-        <td>${participant.name}</td>
-        <td>${participant.gender}</td>
-        <td>${participant.division}</td>
+        <td>${participant.name || "-"}</td>
+        <td>${participant.gender || "-"}</td>
+        <td>${participant.age || "-"}</td>
+        <td>${participant.weight || "-"}</td>
+        <td>${participant.division || "-"}</td>
         <td class="category-cell">
           ${categoryText}
         </td>
-        <td>${participant.coach}</td>
-        <td>${participant.academy}</td>
-        <td>${participant.eventType}</td>
+        <td>${participant.coach || "-"}</td>
+        <td>${participant.academy || "-"}</td>
+        <td>${participant.eventType || "-"}</td>
         <td>${status}</td>
       </tr>
     `;
@@ -194,39 +200,70 @@ function applyFilters() {
   const participantValue =
     participantSearch.value.toLowerCase();
 
+  const ageValue =
+    ageSearch.value.trim();
+
+  const weightValue =
+    weightSearch.value.trim();
+
   const filtered =
     allParticipants.filter(p => {
 
       const coachMatch =
-        p.coach
+        (p.coach || "")
           .toLowerCase()
           .includes(coachValue);
 
       const participantMatch =
-        p.name
+        (p.name || "")
           .toLowerCase()
           .includes(participantValue);
 
+      const ageMatch =
+        !ageValue ||
+        String(p.age) === ageValue;
+
+      const weightMatch =
+        !weightValue ||
+        String(p.weight) === weightValue;
+
       return (
         coachMatch &&
-        participantMatch
+        participantMatch &&
+        ageMatch &&
+        weightMatch
       );
     });
 
   renderParticipants(filtered);
 }
 
-// Coach search
+// =======================
+// EVENT LISTENERS
+// =======================
+
 coachSearch.addEventListener(
   "input",
   applyFilters
 );
 
-// Participant search
 participantSearch.addEventListener(
   "input",
   applyFilters
 );
 
-// Start
+ageSearch.addEventListener(
+  "input",
+  applyFilters
+);
+
+weightSearch.addEventListener(
+  "input",
+  applyFilters
+);
+
+// =======================
+// START
+// =======================
+
 loadParticipants();
